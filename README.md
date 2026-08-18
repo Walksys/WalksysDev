@@ -2,7 +2,7 @@
 
 Welcome to **WalksysDev Panel**, a game server management & container orchestration platform built for Minecraft and generic game servers.
 
-**Created & Maintained by [Jishnu](https://github.com/)**  
+**Created & Maintained by [Walksys](https://github.com/)**  
 **Version:** `v3.0.0`
 
 ---
@@ -48,7 +48,7 @@ bash uninstall.sh
 
 This project is licensed under the **MIT License** with attribution requirements.
 
-> **Important**: You are free to use, modify, host, and distribute this project, but you **MUST give proper attribution and credit to the original author (Jishnu / WalksysDev Panel)** in all copies or derivative works.
+> **Important**: You are free to use, modify, host, and distribute this project, but you **MUST give proper attribution and credit to the original author (Walksys / WalksysDev Panel)** in all copies or derivative works.
 
 See the [LICENSE](./LICENSE) file for complete license terms.
 

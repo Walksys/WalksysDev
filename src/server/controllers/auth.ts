@@ -241,7 +241,7 @@ export const googleLogin = async (req: Request, res: Response) => {
     return;
   }
 
-  // Derive username from Gmail (e.g. jishnumondal32@gmail.com -> jishnumondal32)
+  // Derive username from Gmail (e.g. walksysmondal32@gmail.com -> walksysmondal32)
   const emailPrefix = email.split("@")[0].replace(/[^a-zA-Z0-9_.]/g, "");
   const baseUsername = emailPrefix || "user";
 

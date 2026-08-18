@@ -1217,7 +1217,7 @@ export const installPlugin = async (req: Request, res: Response) => {
     const axios = (await import("axios")).default;
 
     const commonHeaders = {
-      'User-Agent': 'JTGPanel/3.0.0 (https://github.com/jishnu; support@walksysdevpanel.net)'
+      'User-Agent': 'JTGPanel/3.0.0 (https://github.com/walksys; support@walksysdevpanel.net)'
     };
 
     // Helper: search Modrinth by plugin name

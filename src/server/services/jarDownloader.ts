@@ -4,7 +4,7 @@ import axios from "axios";
 import { pipeline } from "stream/promises";
 
 const DEFAULT_HEADERS = {
-  "User-Agent": "JTGPanel/3.0.0 (https://github.com/jishnu; support@walksysdevpanel.net)",
+  "User-Agent": "JTGPanel/3.0.0 (https://github.com/walksys; support@walksysdevpanel.net)",
   "Accept": "*/*"
 };
 

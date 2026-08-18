@@ -10,7 +10,7 @@
 #
 #  Product Name : aashi - WalksysDev PANEL (Update Suite)
 #  Banner       : WalksysDev PANEL
-#  Creator      : Jishnu
+#  Creator      : Walksys
 # ==============================================================================
 
 set -e
@@ -29,7 +29,7 @@ C_MUTED='\033[38;5;244m'
 echo ""
 echo -e "${C_VIBRANT_CYAN}${C_BOLD}  ╭──────────────────────────────────────────────────────────────────────────╮${C_RESET}"
 echo -e "${C_VIBRANT_CYAN}${C_BOLD}  │                 WalksysDev PANEL - AUTOMATED UPDATE SUITE                       │${C_RESET}"
-echo -e "${C_VIBRANT_CYAN}${C_BOLD}  │               Credit: Jishnu  |  aashi - WalksysDev PANEL                       │${C_RESET}"
+echo -e "${C_VIBRANT_CYAN}${C_BOLD}  │               Credit: Walksys  |  aashi - WalksysDev PANEL                       │${C_RESET}"
 echo -e "${C_VIBRANT_CYAN}${C_BOLD}  ╰──────────────────────────────────────────────────────────────────────────╯${C_RESET}"
 echo ""
 
