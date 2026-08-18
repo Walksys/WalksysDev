@@ -1,5 +1,5 @@
 {
-  "name": "jtg-panel",
+  "name": "walksysdev-panel",
   "private": true,
   "version": "3.0.0",
   "type": "module",
@@ -81,7 +81,7 @@
     "docker",
     "pterodactyl",
     "wings",
-    "jtg-panel",
+    "walksysdev-panel",
     "management"
   ],
   "author": "Jishnu",

@@ -249,7 +249,7 @@ router.put("/settings", async (req, res) => {
   } = req.body;
   const settings = await readJSON("settings.json") || {};
   if (panelName !== undefined) {
-    settings.panelName = panelName || "JTG Panel";
+    settings.panelName = panelName || "WalksysDev Panel";
     try {
       const fs = await import("fs/promises");
       const path = await import("path");

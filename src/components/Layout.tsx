@@ -12,9 +12,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const { panelName, panelLogo } = useSettings();
 
-  const pName = panelName || 'JTG PANEL';
+  const pName = panelName || 'WalksysDev PANEL';
   const nameParts = pName.split(' ');
-  const firstWord = nameParts[0]?.toUpperCase() || 'JTG';
+  const firstWord = nameParts[0]?.toUpperCase() || 'WalksysDev';
   const restWords = nameParts.slice(1).join(' ').toUpperCase();
 
 

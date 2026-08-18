@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { readJSON, writeJSON } from "../services/db.js";
 
-const JWT_SECRET = process.env.JWT_SECRET || "jtg-panel-super-secret";
+const JWT_SECRET = process.env.JWT_SECRET || "walksysdev-panel-super-secret";
 
 export const register = async (req: Request, res: Response) => {
   const settings = await readJSON("settings.json") || {};

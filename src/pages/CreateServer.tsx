@@ -187,9 +187,9 @@ export default function CreateServer() {
   const navigate = useNavigate();
   const { user } = useAuth();
   
-  const pName = panelName || 'JTG PANEL';
+  const pName = panelName || 'WalksysDev PANEL';
   const nameParts = pName.split(' ');
-  const firstWord = nameParts[0]?.toUpperCase() || 'JTG';
+  const firstWord = nameParts[0]?.toUpperCase() || 'WalksysDev';
   const restWords = nameParts.slice(1).join(' ').toUpperCase();
   
   // Data

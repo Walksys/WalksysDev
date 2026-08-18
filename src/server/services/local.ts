@@ -178,13 +178,13 @@ export const createLocalServer = async (serverData: any) => {
     const indexPath = path.join(serverPath, "index.js");
     const pkgPath = path.join(serverPath, "package.json");
     if (!await fs.pathExists(indexPath)) {
-      await fs.writeFile(indexPath, `// Node.js Application on JTG Panel\nconst http = require('http');\nconst port = process.env.PORT || process.env.SERVER_PORT || ${serverData.port || 3000};\n\nconsole.log('==============================================');\nconsole.log('🚀 Node.js Application Running on port ' + port);\nconsole.log('Node Version: ' + process.version);\nconsole.log('Upload your files in File Manager to customize!');\nconsole.log('==============================================');\n\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, { 'Content-Type': 'application/json' });\n  res.end(JSON.stringify({ status: 'online', runtime: 'node.js', time: new Date().toISOString() }));\n});\n\nserver.listen(port, '0.0.0.0', () => {\n  console.log(\`[Server] Listening on http://0.0.0.0:\${port}\`);\n});\n`);
+      await fs.writeFile(indexPath, `// Node.js Application on WalksysDev Panel\nconst http = require('http');\nconst port = process.env.PORT || process.env.SERVER_PORT || ${serverData.port || 3000};\n\nconsole.log('==============================================');\nconsole.log('🚀 Node.js Application Running on port ' + port);\nconsole.log('Node Version: ' + process.version);\nconsole.log('Upload your files in File Manager to customize!');\nconsole.log('==============================================');\n\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, { 'Content-Type': 'application/json' });\n  res.end(JSON.stringify({ status: 'online', runtime: 'node.js', time: new Date().toISOString() }));\n});\n\nserver.listen(port, '0.0.0.0', () => {\n  console.log(\`[Server] Listening on http://0.0.0.0:\${port}\`);\n});\n`);
     }
     if (!await fs.pathExists(pkgPath)) {
       await fs.writeFile(pkgPath, JSON.stringify({
         name: (serverData.name || "node-app").toLowerCase().replace(/[^a-z0-9_-]/g, '-'),
         version: "1.0.0",
-        description: "Node.js application hosted on JTG Panel",
+        description: "Node.js application hosted on WalksysDev Panel",
         main: "index.js",
         scripts: { "start": "node index.js" }
       }, null, 2));
@@ -194,7 +194,7 @@ export const createLocalServer = async (serverData: any) => {
     const mainPath = path.join(serverPath, "main.py");
     const reqPath = path.join(serverPath, "requirements.txt");
     if (!await fs.pathExists(mainPath)) {
-      await fs.writeFile(mainPath, `# Python Application on JTG Panel\nimport os\nimport sys\nfrom http.server import HTTPServer, BaseHTTPRequestHandler\n\nport = int(os.environ.get("SERVER_PORT", os.environ.get("PORT", ${serverData.port || 8000})))\nprint("==============================================", flush=True)\nprint("🐍 Python Application Running", flush=True)\nprint(f"Python Version: {sys.version}", flush=True)\nprint(f"Listening Port: {port}", flush=True)\nprint("Upload your files in File Manager to customize!", flush=True)\nprint("==============================================", flush=True)\n\nclass RequestHandler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        self.send_response(200)\n        self.send_header('Content-type', 'application/json')\n        self.end_headers()\n        self.wfile.write(b'{"status": "online", "runtime": "python"}')\n\n    def log_message(self, format, *args):\n        print(f"[{self.log_date_time_string()}] {format % args}", flush=True)\n\nserver = HTTPServer(('0.0.0.0', port), RequestHandler)\nprint(f"[Server] Listening on http://0.0.0.0:{port}", flush=True)\ntry:\n    server.serve_forever()\nexcept KeyboardInterrupt:\n    print("\\nStopping server...", flush=True)\n    server.server_close()\n`);
+      await fs.writeFile(mainPath, `# Python Application on WalksysDev Panel\nimport os\nimport sys\nfrom http.server import HTTPServer, BaseHTTPRequestHandler\n\nport = int(os.environ.get("SERVER_PORT", os.environ.get("PORT", ${serverData.port || 8000})))\nprint("==============================================", flush=True)\nprint("🐍 Python Application Running", flush=True)\nprint(f"Python Version: {sys.version}", flush=True)\nprint(f"Listening Port: {port}", flush=True)\nprint("Upload your files in File Manager to customize!", flush=True)\nprint("==============================================", flush=True)\n\nclass RequestHandler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        self.send_response(200)\n        self.send_header('Content-type', 'application/json')\n        self.end_headers()\n        self.wfile.write(b'{"status": "online", "runtime": "python"}')\n\n    def log_message(self, format, *args):\n        print(f"[{self.log_date_time_string()}] {format % args}", flush=True)\n\nserver = HTTPServer(('0.0.0.0', port), RequestHandler)\nprint(f"[Server] Listening on http://0.0.0.0:{port}", flush=True)\ntry:\n    server.serve_forever()\nexcept KeyboardInterrupt:\n    print("\\nStopping server...", flush=True)\n    server.server_close()\n`);
     }
     if (!await fs.pathExists(reqPath)) {
       await fs.writeFile(reqPath, "# Add python dependencies here\n");
@@ -324,7 +324,7 @@ export const startLocalServer = async (id: string, serverData: any) => {
 
       // Auto-create index.js starter if folder is empty
       if (!found && !await fs.pathExists(path.join(serverPath, entry))) {
-        await fs.writeFile(path.join(serverPath, "index.js"), `// Node.js Application on JTG Panel\nconst http = require('http');\nconst port = process.env.PORT || ${serverData.port || 3000};\nconst server = http.createServer((req, res) => { res.writeHead(200, {'Content-Type':'application/json'}); res.end(JSON.stringify({status:'online'})); });\nserver.listen(port, () => console.log('Node.js server listening on port ' + port));\n`);
+        await fs.writeFile(path.join(serverPath, "index.js"), `// Node.js Application on WalksysDev Panel\nconst http = require('http');\nconst port = process.env.PORT || ${serverData.port || 3000};\nconst server = http.createServer((req, res) => { res.writeHead(200, {'Content-Type':'application/json'}); res.end(JSON.stringify({status:'online'})); });\nserver.listen(port, () => console.log('Node.js server listening on port ' + port));\n`);
         entry = "index.js";
       }
 
@@ -384,7 +384,7 @@ export const startLocalServer = async (id: string, serverData: any) => {
 
       // Auto-create main.py starter if folder is empty
       if (!found && !await fs.pathExists(path.join(serverPath, entry))) {
-        await fs.writeFile(path.join(serverPath, "main.py"), `# Python Application on JTG Panel\nimport os\nimport sys\nfrom http.server import HTTPServer, BaseHTTPRequestHandler\nport = int(os.environ.get("SERVER_PORT", ${serverData.port || 8000}))\nclass Handler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        self.send_response(200)\n        self.end_headers()\n        self.wfile.write(b'{"status":"online","runtime":"python"}')\nserver = HTTPServer(('0.0.0.0', port), Handler)\nprint(f"Python server listening on port {port}", flush=True)\nserver.serve_forever()\n`);
+        await fs.writeFile(path.join(serverPath, "main.py"), `# Python Application on WalksysDev Panel\nimport os\nimport sys\nfrom http.server import HTTPServer, BaseHTTPRequestHandler\nport = int(os.environ.get("SERVER_PORT", ${serverData.port || 8000}))\nclass Handler(BaseHTTPRequestHandler):\n    def do_GET(self):\n        self.send_response(200)\n        self.end_headers()\n        self.wfile.write(b'{"status":"online","runtime":"python"}')\nserver = HTTPServer(('0.0.0.0', port), Handler)\nprint(f"Python server listening on port {port}", flush=True)\nserver.serve_forever()\n`);
         entry = "main.py";
       }
 

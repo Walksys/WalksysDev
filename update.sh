@@ -8,8 +8,8 @@
 #  ╚█████╔╝   ██║   ╚██████╔╝    ██║     ██║  ██║██║ ╚████║███████╗███████╗
 #   ╚════╝    ╚═╝    ╚═════╝     ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝
 #
-#  Product Name : aashi - JTG PANEL (Update Suite)
-#  Banner       : JTG PANEL
+#  Product Name : aashi - WalksysDev PANEL (Update Suite)
+#  Banner       : WalksysDev PANEL
 #  Creator      : Jishnu
 # ==============================================================================
 
@@ -28,17 +28,17 @@ C_MUTED='\033[38;5;244m'
 
 echo ""
 echo -e "${C_VIBRANT_CYAN}${C_BOLD}  ╭──────────────────────────────────────────────────────────────────────────╮${C_RESET}"
-echo -e "${C_VIBRANT_CYAN}${C_BOLD}  │                 JTG PANEL - AUTOMATED UPDATE SUITE                       │${C_RESET}"
-echo -e "${C_VIBRANT_CYAN}${C_BOLD}  │               Credit: Jishnu  |  aashi - JTG PANEL                       │${C_RESET}"
+echo -e "${C_VIBRANT_CYAN}${C_BOLD}  │                 WalksysDev PANEL - AUTOMATED UPDATE SUITE                       │${C_RESET}"
+echo -e "${C_VIBRANT_CYAN}${C_BOLD}  │               Credit: Jishnu  |  aashi - WalksysDev PANEL                       │${C_RESET}"
 echo -e "${C_VIBRANT_CYAN}${C_BOLD}  ╰──────────────────────────────────────────────────────────────────────────╯${C_RESET}"
 echo ""
 
 # Workspace verification
 if [ ! -f "package.json" ]; then
-    if [ -d "Jtg" ]; then
-        cd Jtg
+    if [ -d "WalksysDev" ]; then
+        cd WalksysDev
     else
-        echo -e " ${C_CRIMSON}[✗ ERROR]${C_RESET} package.json not found. Please run this script from inside the JTG Panel directory."
+        echo -e " ${C_CRIMSON}[✗ ERROR]${C_RESET} package.json not found. Please run this script from inside the WalksysDev Panel directory."
         exit 1
     fi
 fi
@@ -54,12 +54,12 @@ echo -e " ${C_DEEP_BLUE}[INFO]${C_RESET} Compiling and building latest productio
 npm run build || true
 
 echo -e " ${C_DEEP_BLUE}[INFO]${C_RESET} Restarting background service..."
-if command -v systemctl &> /dev/null && systemctl is-active --quiet jtg-panel 2>/dev/null; then
-    sudo systemctl restart jtg-panel || true
+if command -v systemctl &> /dev/null && systemctl is-active --quiet walksysdev-panel 2>/dev/null; then
+    sudo systemctl restart walksysdev-panel || true
 elif command -v pm2 &> /dev/null; then
-    pm2 restart jtg-panel 2>/dev/null || npx pm2 restart jtg-panel 2>/dev/null || true
+    pm2 restart walksysdev-panel 2>/dev/null || npx pm2 restart walksysdev-panel 2>/dev/null || true
 fi
 
 echo ""
-echo -e " ${C_EMERALD}${C_BOLD}[✓ SUCCESS]${C_RESET} ${C_WHITE}JTG Panel has been updated and restarted successfully!${C_RESET}"
+echo -e " ${C_EMERALD}${C_BOLD}[✓ SUCCESS]${C_RESET} ${C_WHITE}WalksysDev Panel has been updated and restarted successfully!${C_RESET}"
 echo ""

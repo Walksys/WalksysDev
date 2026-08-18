@@ -771,7 +771,7 @@ export default function AdminSettingsPage(): React.ReactElement {
                             <div>
                               <p className="font-semibold text-amber-200">Runtime Configuration Locked by Installer</p>
                               <p className="mt-1 text-amber-300/80 leading-relaxed">
-                                The execution engine was configured and locked during installation ({panelName || 'JTG Panel'}).
+                                The execution engine was configured and locked during installation ({panelName || 'WalksysDev Panel'}).
                                 To switch between Docker and Local Process runtime, re-run <code className="bg-black/30 px-1 py-0.5 rounded font-mono">bash install.sh</code> or edit <code className="bg-black/30 px-1 py-0.5 rounded font-mono">.env</code>.
                               </p>
                             </div>
@@ -809,7 +809,7 @@ export default function AdminSettingsPage(): React.ReactElement {
                                 setNewDefaultRuntime("docker");
                                 if (setDefaultRuntime) setDefaultRuntime("docker");
                                 try {
-                                  const token = localStorage.getItem("jtg_token") || localStorage.getItem("token");
+                                  const token = localStorage.getItem("walksysdev_token") || localStorage.getItem("token");
                                   const headers: any = {};
                                   if (token) headers["Authorization"] = `Bearer ${token}`;
                                   await axios.put("/api/system/settings", { defaultRuntime: "docker" }, { headers });
@@ -856,7 +856,7 @@ export default function AdminSettingsPage(): React.ReactElement {
                                 setNewDefaultRuntime("local");
                                 if (setDefaultRuntime) setDefaultRuntime("local");
                                 try {
-                                  const token = localStorage.getItem("jtg_token") || localStorage.getItem("token");
+                                  const token = localStorage.getItem("walksysdev_token") || localStorage.getItem("token");
                                   const headers: any = {};
                                   if (token) headers["Authorization"] = `Bearer ${token}`;
                                   await axios.put("/api/system/settings", { defaultRuntime: "local" }, { headers });
@@ -1146,7 +1146,7 @@ export default function AdminSettingsPage(): React.ReactElement {
             </h2>
             <div className="relative z-10">
               <p className="text-muted-foreground text-sm mb-6 max-w-2xl">
-                Trigger an automatic update of the JTG Panel. This will run git pull and rebuild the system. The panel will be unavailable for a few seconds during this process.
+                Trigger an automatic update of the WalksysDev Panel. This will run git pull and rebuild the system. The panel will be unavailable for a few seconds during this process.
               </p>
               <button 
                 onClick={handleSystemUpdate}

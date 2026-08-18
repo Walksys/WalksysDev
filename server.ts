@@ -42,7 +42,7 @@ io.use((socket, next) => {
   const token = socket.handshake.auth.token;
   if (!token) return next(new Error("Authentication error"));
   try {
-    const verified = jwt.verify(token, process.env.JWT_SECRET || "jtg-panel-super-secret");
+    const verified = jwt.verify(token, process.env.JWT_SECRET || "walksysdev-panel-super-secret");
     (socket as any).user = verified;
     next();
   } catch (err) {
@@ -104,7 +104,7 @@ async function startServer() {
   }
 
   httpServer.listen(PORT, "0.0.0.0", () => {
-    console.log(`JTG Panel running on port ${PORT}`);
+    console.log(`WalksysDev Panel running on port ${PORT}`);
   });
 }
 

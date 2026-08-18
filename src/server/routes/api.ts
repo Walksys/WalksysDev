@@ -5,7 +5,7 @@ import { exec } from "child_process";
 const router = express.Router();
 
 router.get("/health", (req, res) => {
-  res.json({ status: "ok", panel: "JTG Panel", version: "3.2.0" });
+  res.json({ status: "ok", panel: "WalksysDev Panel", version: "3.2.0" });
 });
 
 import authRoutes from "./auth.js";
@@ -23,15 +23,15 @@ router.post("/webhook/github-update", async (req, res) => {
     return res.status(401).json({ error: "Invalid webhook secret" });
   }
 
-  console.log("[JTG Panel] GitHub push webhook triggered! Initiating automatic panel update...");
+  console.log("[WalksysDev Panel] GitHub push webhook triggered! Initiating automatic panel update...");
   res.json({ success: true, message: "Automatic update triggered from GitHub push." });
 
   setTimeout(() => {
     exec("bash update.sh", (error, stdout, stderr) => {
       if (error) {
-        console.error(`[JTG Panel Auto-Update Error]:`, error);
+        console.error(`[WalksysDev Panel Auto-Update Error]:`, error);
       }
-      console.log(`[JTG Panel Auto-Update Output]:\n${stdout}`);
+      console.log(`[WalksysDev Panel Auto-Update Output]:\n${stdout}`);
     });
   }, 1000);
 });
@@ -45,7 +45,7 @@ router.use("/nodes", nodeRoutes);
 router.get("/settings", async (req, res) => {
   const settings = await readJSON("settings.json") || {};
   res.json({ 
-    panelName: settings.panelName || "JTG Panel",
+    panelName: settings.panelName || "WalksysDev Panel",
     panelLogo: settings.panelLogo || "",
     panelBackgroundImage: settings.panelBackgroundImage || "",
     panelBackgroundBlur: settings.panelBackgroundBlur !== undefined ? settings.panelBackgroundBlur : 10,

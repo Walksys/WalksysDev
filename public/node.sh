@@ -1,5 +1,5 @@
 #!/bin/bash
-# Node Installer Script for JTG Panel
+# Node Installer Script for WalksysDev Panel
 # This script sets up a remote node for the panel
 
 PORT=6768
@@ -15,7 +15,7 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 echo "======================================"
-echo "    JTG Panel Node Setup Script       "
+echo "    WalksysDev Panel Node Setup Script       "
 echo "======================================"
 
 # Check for root
@@ -50,15 +50,15 @@ if ! command -v pm2 &> /dev/null; then
 fi
 
 # Setup Agent Directory
-mkdir -p /opt/jtg-panel-node
-cd /opt/jtg-panel-node
+mkdir -p /opt/walksysdev-panel-node
+cd /opt/walksysdev-panel-node
 
 # Create package.json
 cat << 'PKGEOF' > package.json
 {
-  "name": "jtg-panel-node",
+  "name": "walksysdev-panel-node",
   "version": "1.0.0",
-  "description": "Node agent for JTG Panel",
+  "description": "Node agent for WalksysDev Panel",
   "main": "agent.js",
   "dependencies": {
     "express": "^4.18.2",
@@ -85,7 +85,7 @@ app.get('/health', (req, res) => {
   console.log('[GET /health] Health check requested');
   res.status(200).json({
     ok: true,
-    service: "jtg-node",
+    service: "walksysdev-node",
     status: "online"
   });
 });
@@ -138,9 +138,9 @@ echo "NODE_KEY=$NODE_KEY" > .env
 echo "PORT=$PORT" >> .env
 
 echo "[+] Starting Node Agent..."
-pm2 stop jtg-node 2>/dev/null || true
-pm2 delete jtg-node 2>/dev/null || true
-pm2 start agent.js --name jtg-node
+pm2 stop walksysdev-node 2>/dev/null || true
+pm2 delete walksysdev-node 2>/dev/null || true
+pm2 start agent.js --name walksysdev-node
 pm2 save
 pm2 startup | tail -n 1 > pm2-startup.sh
 chmod +x pm2-startup.sh

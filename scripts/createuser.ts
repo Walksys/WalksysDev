@@ -45,7 +45,7 @@ async function main() {
   }
 
   console.log("\n========================================");
-  console.log("   JTG PANEL - PRIMARY OWNER SETUP      ");
+  console.log("   WalksysDev PANEL - PRIMARY OWNER SETUP      ");
   console.log("========================================\n");
 
   const rl = readline.createInterface({
